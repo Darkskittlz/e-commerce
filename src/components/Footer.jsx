@@ -5,7 +5,6 @@ import { mobile } from "../responsive"
 
 const Container = styled.div`
     display: flex;
-    margin-bottom: -18px;
     width: 100%;
     background: #ececec;
 `;

@@ -1,13 +1,14 @@
 import { Search, ShoppingCartOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/material';
 import styled from 'styled-components';
-import {mobile} from "../responsive";
+import { mobile } from "../responsive";
+import { Link } from 'react-router-dom';
 
 
 //This is the parent of the Wrapper Component
 const Container = styled.div`
     height: 60px;
-    ${mobile({height: "50px"})}
+    ${mobile({ height: "50px" })}
 `;
 
 //This is the parent of the Left, Center, Right components
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${mobile({padding: "10px 0px"})}
+    ${mobile({ padding: "10px 0px" })}
 `
 
 const Left = styled.div`
@@ -28,19 +29,19 @@ const Left = styled.div`
 const Language = styled.span`
     font-style: 14px;
     cursor: pointer;
-    ${mobile({display: "none"})}
+    ${mobile({ display: "none" })}
 `
 
 const SearchContainer = styled.div`
     border: 0.5px solid lightgray;
     margin-left: 25px;
     padding: 5px;
-    ${mobile({marginLeft: "0px"})}
+    ${mobile({ marginLeft: "0px" })}
 `
 
 const Input = styled.input`
     border: none;
-    ${mobile({width: "50px"})}
+    ${mobile({ width: "50px" })}
 `
 
 const Center = styled.div`
@@ -50,7 +51,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
     font-weight: bold;
-    ${mobile({ fontSize: "13px", marginLeft: "10px"})}
+    ${mobile({ fontSize: "13px", marginLeft: "10px" })}
 `
 
 const Right = styled.div`
@@ -58,14 +59,14 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    ${mobile({flex:2, justifyContent: "center"})}
+    ${mobile({ flex: 2, justifyContent: "center" })}
 `
 
 const MenuItem = styled.div`
     font-style: 14px;
     cursor: pointer;
     margin-left: 15px;
-    ${mobile({fontSize: "12px", marginLeft: "10px"})}
+    ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `
 
 
@@ -76,18 +77,38 @@ const Navbar = () => {
                 <Left>
                     <Language>EN</Language>
                     <SearchContainer>
-                        <Input placeholder="search"/>
-                        <Search style={{color: "blue", fontSize: 16}}/>
+                        <Input placeholder="search" />
+                        <Search style={{ color: "blue", fontSize: 16 }} />
                     </SearchContainer>
                 </Left>
-                <Center><Logo>DarkMeow
-                    Productions</Logo></Center>
+                <Center>
+                    <Link 
+                        to="/"
+                        style={{ textDecoration: "none", color: "black", cursor: "pointer" }}
+                    >
+                        <Logo>DarkMeow Productions</Logo>
+                    </Link>
+                </Center>
                 <Right>
-                    <MenuItem>Register</MenuItem>
-                    <MenuItem>Sign In</MenuItem>
+                    <MenuItem>
+                        <Link
+                            to="/RegisterPage"
+                            style={{ textDecoration: "none", color: "black", cursor: "pointer" }}
+                        >Register
+                        </Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link
+                            to="/LoginPage"
+                            style={{ textDecoration: "none", color: "black", cursor: "pointer" }}
+                        > Sign In
+                        </Link>
+                    </MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">
-                        <ShoppingCartOutlined />
+                            <Link to="/cart">
+                                <ShoppingCartOutlined />
+                            </Link>
                         </Badge>
                     </MenuItem>
                 </Right>

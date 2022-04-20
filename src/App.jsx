@@ -14,7 +14,6 @@ import {
 // import { useSelector } from "react-redux";
 
 
-
 const App = () => {
   const user = false
   return (
@@ -32,12 +31,12 @@ const App = () => {
         <Route path="/cart">
           <Cart />
         </Route>
-        <Route path="/login">
-          {user ? <Redirect to="/"/> : <LoginPage />}
+        <Route path="/LoginPage">
+          {/* {user ? <Redirect to="/"/> : <LoginPage />} */}
           <LoginPage />
         </Route>
-        <Route path="/register">
-        {user ? <Redirect to="/"/> : <RegisterPage />}
+        <Route path="/RegisterPage">
+        {/* {user ? <Redirect to="/"/> : <RegisterPage />} */}
           <RegisterPage />
         </Route>
       </Switch>
